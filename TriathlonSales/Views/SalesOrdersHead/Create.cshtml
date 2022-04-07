@@ -1,0 +1,42 @@
+﻿@model SalesOrdersHead
+
+
+<form method="post">
+    <div class="p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Create Sales Order</h2>
+        </div>
+        <div class="mb-3">
+            <label asp-for="docNo"></label>
+            <input asp-for="docNo" class="form-control" value=@ViewBag.NextDocNo disabled style="width:100%;"/>
+        </div>
+        <div class="mb-3">
+           <label asp-for="Customer" />
+           <button type="submit" asp-action="ChooseCustomer">Choose</button>
+           <input type="text" asp-for="Customer" value=@ViewBag.CustomerName disabled/>
+         </div>
+         <div class="mb-3">
+            <label asp-for="Currency"></label>
+            <select asp-for="Currency" class="form-control">
+                <option>PLN</option>
+            </select>
+            <span asp-validation-for="Currency" class="text-danger"></span>
+        </div>
+         <div class="mb-3">
+            <label asp-for="createdDate"></label>
+            <input asp-for="createdDate" class="form-control" disabled/>
+        </div>
+      
+        </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+        <a asp-controller="SalesOrdersHead" asp-action="Index" class="btn btn-secondary">Back</a>
+    </div>
+</form>
+
+<script type="text/javascript">
+    function GetCustomer(){
+        let buttonText=document.getElementById("customerBtn").innerText;
+        let getCustomerName=document.getElementById("customerName").value=buttonText;
+        return
+    }
+</script>

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SalesOrdersHead>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<partial name="_Notifications" />
+<div class="container p-3">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    DocNo
+                </th>
+                <th>
+                    Customer
+                </th>
+               <th>
+                   Date
+               </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var obj in Model)
+            {
+                <tr>
+                    <td>
+                        @obj.Id
+                    </td>
+                     <td>
+                        @obj.docNo
+                    </td>
+                    <td>
+                        @obj.Customer
+                    </td>
+                    <td>
+                        @obj.createdDate
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

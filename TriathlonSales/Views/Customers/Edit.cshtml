@@ -1,0 +1,53 @@
+﻿@model Customers
+
+
+<form method="post" asp-action="Edit">
+    <div class="p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Create Customer</h2>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="TaxNo"></label>
+            <input asp-for="TaxNo" class="form-control" />
+            <span asp-validation-for="TaxNo" class="text-danger"></span>
+        </div>
+         <div class="mb-3">
+            <label asp-for="City"></label>
+            <input asp-for="City" class="form-control" />
+            <span asp-validation-for="City" class="text-danger"></span>
+        </div>
+         <div class="mb-3">
+            <label asp-for="Street"></label>
+            <input asp-for="Street" class="form-control" />
+            <span asp-validation-for="Street" class="text-danger"></span>
+        </div>
+         <div class="mb-3">
+            <label asp-for="streetNo"></label>
+            <input asp-for="streetNo" class="form-control" />
+            <span asp-validation-for="streetNo" class="text-danger"></span>
+        </div>
+         <div class="mb-3">
+            <label asp-for="PostalCode"></label>
+            <input asp-for="PostalCode" class="form-control" />
+            <span asp-validation-for="PostalCode" class="text-danger"></span>
+        </div>
+         <div class="mb-3">
+            <label asp-for="Country"></label>
+            <select asp-for="Country" class="form-control">
+                @foreach(var obj in @ViewBag.Countries)
+                {
+                    <option>@obj.Name</option>
+                }
+            </select>
+            <span asp-validation-for="Country" class="text-danger"></span>
+            <button class="btn btn-primary"><a asp-controller="Countries" asp-action="Create" style="color:white;" target="_blank">Create new</a></button>
+        </div>
+        <button type="submit" class="btn btn-primary">Edit</button>
+        <a asp-controller="Customers" asp-action="Index" class="btn btn-secondary">Back</a>
+    </div>
+</form>

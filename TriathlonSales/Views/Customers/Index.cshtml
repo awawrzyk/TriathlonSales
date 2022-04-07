@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Customers>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<partial name="_Notifications" />
+<div class="container p-3">
+    <a asp-controller="Customers" asp-action="Create" class="btn btn-primary">Create new</a>
+    <table class="table">
+        <thead>
+             <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    TaxNo
+                </th>
+                <th>
+                    City
+                </th>
+                <th>
+                    Street
+                </th>
+                <th>
+                    StreetNo
+                </th>
+                <th>
+                    PostalCode
+                </th>
+                <th>
+                    Country
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+          <tbody>
+            @foreach(var obj in Model)
+            {
+                <tr>
+                    <td>
+                        @obj.Id
+                    </td>
+                    <td>
+                        @obj.Name
+                    </td>
+                    <td>
+                        @obj.TaxNo
+                    </td>
+                    <td>
+                        @obj.City
+                    </td>
+                    <td>
+                        @obj.Street
+                    </td>
+                    <td>
+                        @obj.streetNo
+                    </td>
+                    <td>
+                        @obj.PostalCode
+                    </td>
+                    <td>
+                        @obj.Country
+                    </td>
+                    <td>
+                        <div class="w-75 btn-group" role="group">
+                            <a asp-controller="Customers" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary">Edit</a>
+                            <a asp-controller="Customers" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

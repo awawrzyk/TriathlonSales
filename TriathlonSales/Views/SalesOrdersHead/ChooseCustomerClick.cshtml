@@ -1,0 +1,16 @@
+﻿@model Customers
+
+<div class="conatiner p3">
+    <div class="p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Choose Customer</h2>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Edit</button>
+        <a asp-controller="SalesOrdersHead" asp-action="Create" class="btn btn-secondary">Back</a>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Countries>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<partial name="_Notifications" />
+<div class="container p-3">
+    <div class="col-6 text-end">
+        <a asp-controller="Countries" asp-action="Create" class="btn btn-primary">Create new</a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Country Code
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var obj in Model)
+            {
+                <tr>
+                    <td>
+                        @obj.Id
+                    </td>
+                    <td>
+                        @obj.Name
+                    </td>
+                    <td>
+                        @obj.CountryCode
+                    </td>
+                     <td width="25%">
+                        <div class="w-75 btn-group" role="group">
+                            <a asp-controller="Countries" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary">Edit</a>
+                           <a asp-controller="Countries" asp-action="delete" asp-route-id="@obj.Id" class="btn btn-danger">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
